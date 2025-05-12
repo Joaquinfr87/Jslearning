@@ -190,13 +190,7 @@ console.log(sum);
 ***
 ****
 
-    Simula una calculadora que siga funcionando hasta que el usuario escriba "salir" (do...while).
-
-    Calcula el factorial de un número n con un bucle (n!).
-
-    Busca el número más grande en un array sin usar métodos de array.
-
-    Verifica si una palabra es un palíndromo (se lee igual al revés).*/
+*/
 
 let numero=prompt("Ingresa un numero: ");
 let EsPrimo=true;
