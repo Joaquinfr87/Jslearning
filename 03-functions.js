@@ -93,4 +93,14 @@ function roundTo(n, step = 1) {
   console.log(twice(5));
   // → 10
 
-  
+//ejercicios
+//minimo dos numeros
+const min=(x,y)=>{
+  if(x<y)return x
+  return y
+};
+//maximo dos numeros
+const max=(x,y)=>{
+  if(x>y)return x
+  return y
+};

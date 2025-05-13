@@ -216,4 +216,25 @@ for(let line="#";line.length<=n;line+="#"){
     console.log(line);
   }
 
+//fizz buzz
+for(let i=0;i<100;i++){
+  let cadena="";
+  if(i%3==0)cadena+="Fizz"
+  if(i%5==0)cadena+="Buzz"
+  console.log(cadena||i);
+}
 
+//tablero ajedrez
+let m=prompt();
+for(let i=0;i<m;i++){
+  let tablero="";
+  for(let j=0;j<m;j++){
+    if((i+j)%2==0){
+      tablero+="#";
+    }
+    else{
+      tablero+=" "
+    }
+  }
+  console.log(tablero)
+}
