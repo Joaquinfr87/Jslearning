@@ -109,6 +109,15 @@ for (let current = 20; ; current = current + 1) {
       break;
   }
 
+  //includes
+  const frutas = ['manzana', 'banana', 'cereza'];
+
+  console.log(frutas.includes('banana')); // true
+  console.log(frutas.includes('pera'));   // false
+  //con indice 
+   console.log(frutas.includes('banana',2)); 
+  // false
+
 
 /*Ejercicios de loops*/
 /*Nivel intermedio (1–7)

@@ -70,3 +70,22 @@ console.log(list);
 console.log(nth(list,5));
 
 //4
+function deepEqual(a,b){
+  if(a===b)return true;
+  if(a==null||typeof a !="object"||
+     b==null||typeof b !="object")return false;
+  let keys_a=Object.keys(a),keys_b=Object.keys(b);
+  if(keys_a.length!=keys_b.length)return false;
+  for(let key of keys_a){
+    if(!keys_b.includes(key) || !deepEqual(a[key],b[key]))return false;
+  }
+  return true;
+}
+let obj = {here: {is: "an"}, object: 2};
+console.log(Object.keys(obj))
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true

@@ -54,10 +54,15 @@ let obj = {x: 0, y: 0, z: 2};
 Object.keys(obj).forEach(key => {
   console.log(key + ": " + obj[key]);
 });
+/*x: 0
+
+y: 0
+
+z: 2*/
 
 let objectA = {a:1,b:2};
 Object.assign(objectA,{b:3,c:4});
-console.log(objectA);
+console.log(objectA);//{a: 1, b: 3, c: 4}
 
 //un binding de tipo array que contiene dentro objetos
 journal = [
