@@ -27,3 +27,46 @@ console.log(sum(range(1, 10)));
 // → 55
 
 //2
+function reverseArray(array){
+    for(let i=0;i<=array.length/2;i++){
+        let aux=array[i];
+        array[i]=array[array.length-1-i];
+        array[array.length-1-i]=aux;
+    }
+    return array;
+};
+console.log(reverseArray(["A", "B", "C"]));
+//3
+const arrayToList=(array)=>{
+    let list=null;
+  for(let i=array.length-1;i>-1;i--) {
+    list={valor: array[i],next: list}
+  }
+  return list;
+};
+const listToArray=(list)=>{
+  let array=[];
+  while(list!==null){
+  array.push(list.valor);
+  list=list.next;
+  }
+  return array;
+}
+const prepend = (valor,list) =>{
+    return {valor:valor,next:list}
+};
+const nth = (list,n)=>{
+if(list==null){return undefined;}
+if(n==0){return list.valor;}
+return nth(list.next,n-1);
+};
+console.log(arrayToList([10,20,30]));
+list=arrayToList([3,4,5,6,7])
+console.log(listToArray(list));
+
+
+console.log(list);
+
+console.log(nth(list,5));
+
+//4
