@@ -1,0 +1,55 @@
+🧠 Nivel Básico (1-15)
+    1. Multiplica por 2 cada número de un array usando map.
+    2. Convierte cada palabra de un array a mayúsculas usando map.
+    3. Filtra los números pares de un array usando filter.
+    4. Filtra los nombres con más de 5 letras usando filter.
+    5. Suma todos los números de un array usando reduce.
+    6. Calcula el producto de todos los números en un array usando reduce.
+    7. Usa forEach para imprimir cada elemento de un array.
+    8. Usa some para verificar si al menos un número es negativo.
+    9. Usa every para verificar si todos los elementos son mayores que 10.
+    10. Usa find para encontrar el primer número impar.
+    11. Ordena un array de números ascendentemente usando sort.
+    12. Ordena un array de strings por longitud usando sort.
+    13. Escribe una función que reciba una función y un número y aplique esa función al número.
+    14. Crea una función que devuelva otra función que sume un número dado.
+    15. Usa map para transformar un array de objetos {nombre, edad} en solo nombres.
+
+🧩 Nivel Intermedio (16-35)
+    16. Convierte un array de strings en un array con la longitud de cada string.
+    17. Filtra objetos con edad mayor a 18 de un array de {nombre, edad}.
+    18. Suma solo los números pares de un array usando filter + reduce.
+    19. Agrupa palabras por su primera letra.
+    20. Cuenta cuántas veces aparece cada letra en una cadena (usa reduce).
+    21. Verifica si todos los objetos tienen una propiedad específica con every.
+    22. Encuentra el primer producto con precio mayor a 1000.
+    23. Crea una función que tome otra función como argumento y devuelva una versión que solo se puede ejecutar una vez.
+    24. Crea una función que reciba otra función y un tiempo, y retarde su ejecución (setTimeout).
+    25. Crea una función que reciba una función y devuelva una versión que cachee los resultados.
+    26. Usa reduce para transformar un array de objetos {id, valor} en un objeto con clave id.
+    27. Usa filter para quedarte con los objetos cuyo nombre comience con una vocal.
+    28. Convierte un array de números en un solo string separado por - usando reduce.
+    29. Usa map para devolver solo el primer carácter de cada palabra.
+    30. Combina map y filter para quedarte con las longitudes de las palabras que tengan más de 4 letras.
+    31. Crea una función que reciba un array de funciones y las ejecute en secuencia sobre un valor inicial.
+    32. Escribe un compose para componer múltiples funciones (f(g(x))).
+    33. Escribe un pipe para ejecutar funciones de izquierda a derecha.
+    34. Usa map para convertir un array de fechas en strings formateados.
+    35. Usa reduce para contar cuántas veces aparece cada palabra en una lista.
+
+🔥 Nivel Avanzado (36-50)
+    36. Crea una función que tome un array de funciones y devuelva una función que ejecute todas.
+    37. Implementa tu propia versión de map.
+    38. Implementa tu propia versión de filter.
+    39. Implementa tu propia versión de reduce.
+    40. Usa reduce para aplanar un array de arrays.
+    41. Escribe una función groupBy que agrupe elementos por una propiedad.
+    42. Escribe una función partition que divida un array según una condición.
+    43. Usa every y some para validar formularios.
+    44. Crea una función que reciba funciones booleanas y devuelva una función tipo and lógico.
+    45. Crea una función que reciba funciones booleanas y devuelva una tipo or.
+    46. Crea una función que aplique dos funciones en paralelo y combine sus resultados.
+    47. Usa filter y sort para obtener los 3 productos más caros con stock disponible.
+    48. Crea una función memoize genérica que guarde resultados de funciones puras.
+    49. Implementa una versión funcional de un carrito de compras usando solo map, reduce y funciones puras.
+    50. Usa reduce para convertir un array de rutas como ["a.b", "a.c"] en un objeto anidado: {a: {b: true, c: true}}.
