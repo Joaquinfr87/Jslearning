@@ -65,7 +65,3 @@ console.log(objetos.reduce(
     return a
   }
   ,[]));
-
-
-
-

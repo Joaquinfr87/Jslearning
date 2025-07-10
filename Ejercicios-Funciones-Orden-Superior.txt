@@ -53,3 +53,21 @@
     48. Crea una función memoize genérica que guarde resultados de funciones puras.
     49. Implementa una versión funcional de un carrito de compras usando solo map, reduce y funciones puras.
     50. Usa reduce para convertir un array de rutas como ["a.b", "a.c"] en un objeto anidado: {a: {b: true, c: true}}.
+
+
+    | Función         | Qué hace                                                          | Devuelve                    |
+| --------------- | ----------------------------------------------------------------- | --------------------------- |
+| `forEach()`     | Ejecuta una función por cada elemento                             | `undefined`                 |
+| `map()`         | Aplica una función a cada elemento y devuelve un nuevo array      | Nuevo array                 |
+| `filter()`      | Filtra los elementos que cumplen una condición                    | Nuevo array                 |
+| `reduce()`      | Reduce el array a un solo valor acumulando con una función        | Cualquier valor             |
+| `reduceRight()` | Igual que `reduce()`, pero de derecha a izquierda                 | Cualquier valor             |
+| `some()`        | Retorna `true` si **algún** elemento cumple la condición          | `true` / `false`            |
+| `every()`       | Retorna `true` si **todos** los elementos cumplen la condición    | `true` / `false`            |
+| `find()`        | Retorna el **primer** elemento que cumple la condición            | Elemento o `undefined`      |
+| `findIndex()`   | Retorna el **índice** del primer elemento que cumple la condición | Índice o `-1`               |
+| `flatMap()`     | Aplica una función y aplana el resultado un nivel                 | Nuevo array                 |
+| `sort()`        | Ordena los elementos usando una función de comparación            | El mismo array (modificado) |
+| `includes()`    | Verifica si un valor está presente en el array                    | `true` / `false`            |
+| `indexOf()`     | Retorna el índice de la primera aparición de un valor             | Índice o `-1`               |
+| `lastIndexOf()` | Índice de la última aparición de un valor                         | Índice o `-1`               |
