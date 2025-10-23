@@ -4,11 +4,11 @@ for(let i=1;i<100;i++){
     if(i%5==0)word+="Buzz";
     console.log(word||i);
 }
-
+( palabra )
 function speak(line){
     console.log(`The ${this.type} rabbit says ${line}`);
 }
-let rabbit = {type: "White",speak};
+qet rabbit = {type: "White",speak};
 console.log(rabbit.type)
 rabbit.speak("GAAAAA")
 speak.call(rabbit,"Gaaaaa")//esta funcion llama al objeto call(thisArg,arg1,arg2,...)
@@ -131,4 +131,37 @@ console.log(tmp.celsius);
 console.log(Temperatura.fromFahrenheit(200).celsius);
 tmp = Temperatura.fromFahrenheit(300);
 
-//
+//Simbolos
+class dog{
+  constructor(type){
+    this.type=type;
+  }
+  speak(line){
+    console.log(`The ${this.type} dog says ${line}`)
+  }
+}
+let chabby = new dog("Chiquita");
+let sym= Symbol("name");
+dog.prototype[sym]=55;
+console.log(chabby[sym]);//=>55
+
+const length = Symbol("length");
+Array.prototype[length]="Gaaa";
+console.log([1,2].length)//=>2
+console.log([1,2][length])//=>Gaa
+
+
+  let viaje = {
+ length:2,
+ 0:"Bolivia",
+ 1:"Venezuela",
+ [length]:1000
+}
+console.log(viaje.length,viaje[length])
+
+//Interfaz iterador
+let okIterator = "Ok"[Symbol.iterator]();
+console.log(okIterator.next());
+console.log(okIterator.next());
+console.log(okIterator.next());
+

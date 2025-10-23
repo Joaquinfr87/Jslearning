@@ -1,0 +1,7 @@
+Pagina de javascript para aprender javascript
+https://javascript.info/
+
+Libro - Eloquent javascript
+https://eloquentjavascript.net/
+
+
