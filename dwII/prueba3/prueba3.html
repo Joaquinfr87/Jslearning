@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="prueba3.js" defer>
+    </script>
+    <script>
+      console.log("Hello World")
+    </script>
+  </head>
+  <body>
+    <h1>
+      Hola mundo
+    </h1>
+    <p id="parrafo1">
+    </p>
+    <div id="contenidos" style="width:150px; height:60px; border:thin solid
+      silver" onmouseover="this.style.borderColor='black';"
+      onmouseout="this.style.borderColor='silver';">
+Sección de contenidos...
+</div>
+  <div onClick=mostrarMensaje()>
+      Click me
+    </div>
+    <div id="divsito">
+      also click me
+    </div>
+    <form>
+      <input type="text" name="Pregunta 1"  id="texto1">
+      <input type="password" name="Password" id="password1">
+      <input type="radio" name="preferencia" >
+      <button onClick=verDatos()> click me</button>
+    </form>
+  </body>
+</html>
