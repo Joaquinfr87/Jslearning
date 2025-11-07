@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="ejercicio11.js" defer></script>
+    <style>
+    #contenedor{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: grid;
+      grid-template-columns: 50% 50%;
+      grid-template-rows: 50% 50%;
+    }
+#zona1 { background-color: #e74c3c; }  
+#zona2 { background-color: #3498db; }  
+#zona3 { background-color: #2ecc71; } 
+#zona4 { background-color: #f1c40f; } 
+    </style>
+  </head>
+  <body>
+  <div id="contenedor" style="height:100vh; display:grid; grid-template-columns:50% 50%; grid-template-rows:50% 50%;">
+    <div id="zona1" class="zona"></div>
+    <div id="zona2" class="zona"></div>
+    <div id="zona3" class="zona"></div>
+    <div id="zona4" class="zona"></div>
+  </div>
+  </body>
+</html>
