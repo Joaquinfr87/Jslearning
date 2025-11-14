@@ -35,3 +35,33 @@ function sumar(x){
 
 let suma5 = sumar(5);
 console.log(suma5(2));//=> 7
+
+//los closure tambien sirven para imitar los private metodos de otros lenguajes
+const counter = (init) => {
+  let privateCounter = init;
+  function changeBy(num){
+    privateCounter += num;
+  }
+  return {
+    increment(){
+      changeBy(1);
+    },
+    decrement(){
+      changeBy(-1);
+    },
+    value(){
+      return privateCounter;
+    },
+  }
+}
+
+let Counter = counter(19);
+
+console.log(Counter.value());
+Counter.increment();
+Counter.decrement();
+Counter.increment();
+Counter.increment();
+console.log(Counter.value());
+
+
