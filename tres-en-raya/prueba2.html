@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <style>
+    table { border-collapse: collapse; }
+    td {
+      width: 40px;
+      height: 40px;
+      border: 1px solid black;
+      text-align: center;
+      cursor: pointer;
+    }
+    .active { background: yellow; }
+  </style>
+</head>
+<body>
+
+<input type="number" id="size" placeholder="Tamaño n">
+<button id="crear">Crear tabla</button>
+
+<div id="contenedor"></div>
+
+<script>
+  $("#crear").on("click", function () {
+    let n = parseInt($("#size").val());
+    if (!n || n <= 0) return;
+
+    let tabla = $("<table></table>");
+
+    for (let i = 0; i < n; i++) {
+      let fila = $("<tr></tr>");
+      for (let j = 0; j < n; j++) {
+        let celda = $("<td></td>")
+          .text(`${i},${j}`)
+          .on("click", function () {
+            $(this).toggleClass("active");
+          });
+
+        fila.append(celda);
+      }
+      tabla.append(fila);
+    }
+
+    $("#contenedor").html(tabla);
+  });
+</script>
+
+</body>
+</html>
