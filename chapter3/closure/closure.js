@@ -64,4 +64,18 @@ Counter.increment();
 Counter.increment();
 console.log(Counter.value());
 
+//global scope chain
+const e = 10;
+
+let suma = (a)=>{
+  return (b)=>{
+    return (c)=>{
+      return(d)=>{
+        return a+b+c+d+e;
+      }
+    }
+  }
+}
+console.log(suma(9)(8)(7)(6))
+
 
