@@ -6,7 +6,11 @@ const SHIP_SIZE = 30; // pixeles altura
 const TURN_SPEED = 360; // giro de la nave en grados por segundo
 const SHIP_EMPUJE = 5; // aceleracion de la nave por pixeles por segundo por segundo 
 const FRICCION = 0.7;// coeficiente de friccion
-
+const ASTEROIDES_NUM = 10;// numero inicial de asteroides
+const ASTEROIDES_SPEED = 50;
+const ASTEROIDES_SIZE = 100;
+const ASTEROIDES_VERT = 10;//numero random de vertices
+const ASTEROIDES_BORDE = 0.3; //constante de borde dentado de los asteroides 0 ninguno 1 mucho
 let ship = {
   x: canva.width / 2,
   y: canva.height / 2,
@@ -21,7 +25,39 @@ let ship = {
 }
 
 let asteroides = [];
+createAsteroidsBelt();
 
+function createAsteroidsBelt() {
+  asteroides = [];
+  let x, y;
+  for (let i = 0; i < ASTEROIDES_NUM; i++) {
+    do {
+      x = Math.floor(Math.random() * canva.width);
+      y = Math.floor(Math.random() * canva.height);
+    } while (distanceEntrePuntos(ship.x, ship.y, x, y) < ASTEROIDES_SIZE * 2 + ship.r);
+    asteroides.push(nuevoAsteroide(x, y));
+  }
+}
+function distanceEntrePuntos(x1, y1, x2, y2) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+}
+function nuevoAsteroide(x, y) {
+  let asteroide = {
+    x: x,
+    y: y,
+    xv: Math.random() * ASTEROIDES_SPEED / FPS * (Math.random() < 0.05 ? 1 : -1),
+    yv: Math.random() * ASTEROIDES_SPEED / FPS * (Math.random() < 0.05 ? 1 : -1),
+    r: ASTEROIDES_SIZE / 2,
+    a: Math.random() * Math.PI * 2,
+    vert: Math.floor(Math.random() * (ASTEROIDES_VERT + 1) + ASTEROIDES_VERT / 2),
+    offs: []
+
+  };
+  for (let i = 0; i < asteroide.vert; i++) {
+    asteroide.offs.push(Math.random() * ASTEROIDES_BORDE * 2 + 1 - ASTEROIDES_BORDE);
+  }
+  return asteroide;
+}
 
 // manejadores de eventos
 document.addEventListener("keydown", keyDown);
@@ -141,4 +177,47 @@ function update() {
   //movimientio de la nave
   ship.x += ship.empuje.x;
   ship.y += ship.empuje.y;
+
+  //dibujar los asteroides
+  ctx.strokeStyle = "gray";
+  ctx.lineWidth = SHIP_SIZE / 20;
+  let x, y, r, a, vert, offs;
+  for (let e of asteroides) {
+    x = e.x;
+    y = e.y;
+    r = e.r;
+    a = e.a;
+    vert = e.vert;
+    offs = e.offs;
+    //dibujar un ruta
+    ctx.beginPath();
+    ctx.moveTo(
+      x + r * offs[0] * Math.cos(a),
+      y + r * offs[0] * Math.sin(a)
+    );
+    //dibuajr un poligono
+    for (let i = 1; i < vert; i++) {
+      ctx.lineTo(
+        x + r * offs[i] * Math.cos(a + i * Math.PI * 2 / vert),
+        y + r * offs[i] * Math.sin(a + i * Math.PI * 2 / vert)
+      )
+    }
+    ctx.closePath();
+    ctx.stroke();
+
+    //mover el asteroide
+    e.x += e.xv;
+    e.y += e.yv;
+    //manejar los finales de pantalla
+    if (e.x < 0 - e.r) {
+      e.x = canva.width + e.r;
+    } else if (e.x > canva.width + e.r) {
+      e.x= 0 - e.r
+    }
+    if (e.y < 0 - e.r) {
+      e.y = canva.height + e.r;
+    } else if (e.y > canva.height + e.r) {
+      e.y= 0 - e.r
+    }
+  }
 }
