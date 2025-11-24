@@ -11,6 +11,7 @@ const ASTEROIDES_SPEED = 50;
 const ASTEROIDES_SIZE = 100;
 const ASTEROIDES_VERT = 10;//numero random de vertices
 const ASTEROIDES_BORDE = 0.3; //constante de borde dentado de los asteroides 0 ninguno 1 mucho
+const SHOW_ALREDEDOR = true;
 let ship = {
   x: canva.width / 2,
   y: canva.height / 2,
@@ -41,6 +42,16 @@ function createAsteroidsBelt() {
 function distanceEntrePuntos(x1, y1, x2, y2) {
   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
 }
+
+function explotarNave() {
+  ctx.fillStyle = "red"
+  ctx.strokeStyle = "green"
+  ctx.beginPath();
+  ctx.arc(ship.x, ship.y, ship.r, 0, Math.PI * 2, false)
+  ctx.stroke();
+  ctx.fill();
+}
+
 function nuevoAsteroide(x, y) {
   let asteroide = {
     x: x,
@@ -122,6 +133,21 @@ function update() {
   ctx.closePath();
   ctx.stroke();
 
+  if (SHOW_ALREDEDOR) {
+    ctx.strokeStyle = "green"
+    ctx.beginPath();
+    ctx.arc(ship.x, ship.y, ship.r, 0, Math.PI * 2, false)
+    ctx.stroke();
+  }
+
+  //colision
+  for (let e of asteroides) {
+    if (distanceEntrePuntos(ship.x, ship.y, e.x, e.y) < ship.r + e.r) {
+      explotarNave();
+    }
+  }
+
+
   //rotacion de la nave
   ship.a += ship.rot;
 
@@ -179,10 +205,10 @@ function update() {
   ship.y += ship.empuje.y;
 
   //dibujar los asteroides
-  ctx.strokeStyle = "gray";
-  ctx.lineWidth = SHIP_SIZE / 20;
   let x, y, r, a, vert, offs;
   for (let e of asteroides) {
+    ctx.strokeStyle = "gray";
+    ctx.lineWidth = SHIP_SIZE / 20;
     x = e.x;
     y = e.y;
     r = e.r;
@@ -205,6 +231,13 @@ function update() {
     ctx.closePath();
     ctx.stroke();
 
+    if (SHOW_ALREDEDOR) {
+      ctx.strokeStyle = "blue"
+      ctx.beginPath();
+      ctx.arc(x, y, r, 0, Math.PI * 2, false)
+      ctx.stroke();
+    }
+
     //mover el asteroide
     e.x += e.xv;
     e.y += e.yv;
@@ -212,12 +245,12 @@ function update() {
     if (e.x < 0 - e.r) {
       e.x = canva.width + e.r;
     } else if (e.x > canva.width + e.r) {
-      e.x= 0 - e.r
+      e.x = 0 - e.r
     }
     if (e.y < 0 - e.r) {
       e.y = canva.height + e.r;
     } else if (e.y > canva.height + e.r) {
-      e.y= 0 - e.r
+      e.y = 0 - e.r
     }
   }
 }
