@@ -98,8 +98,10 @@ console.log(map(objetos,e=> e.nombre))
 //otra operacion muy usada es la de operarar todos los elementos de un array
 //en un resultado y retornarlo 
 //como su nombre indica ca reduciendo todos los elementos a un unico valor
-function reduce(array,combinacion){
-  let resultado=0;//=> este es el almacenador
+function reduce(array,combinacion,inicial=0){
+  let resultado=inicial;//=> este es el almacenador el inicial es muy
+  //importante para cuando se vayan a hacer uso de los compose por ejemplo ver en
+  //  ./composability
   for(let e of array){
     resultado = combinacion(e,resultado);
   }
@@ -115,7 +117,7 @@ console.log(reduce([1,2,3,4,5,6,7,8,9,10],(a,b)=>a*(b==0?1:b)))
 
 //composibility
 //se trata de acoplar codigo entre si para crear funciones mas complejas
-
+// ver en ./composability para enteder mejor
 let sumar10 = a => a+10
 let duplicar = a => a*2
 
