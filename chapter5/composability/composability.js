@@ -43,3 +43,12 @@ console.log(compose(...[factorial,pow,digitosToArray].reverse())(10))
 
 
 //otra forma de usar composability es esta con las funciones de alto orden
+let array = [1,2,3,4,5];
+console.log(array.reduce((a,b)=>a+b,0));
+console.log(array.map(a=>`Este es el numero ${a}`))
+console.log(array.filter(a=>a%2==0))
+
+
+console.log(array.map(a=>a*2)
+            .filter(a => a>5)
+            .reduce((a,b)=> a*b))
