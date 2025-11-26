@@ -124,3 +124,5 @@ let duplicar = a => a*2
 let procesar = a => duplicar(sumar10(a));
 console.log(procesar(10));
  
+
+//

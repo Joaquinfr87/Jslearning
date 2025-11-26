@@ -1,0 +1,4 @@
+Dado un array de objetos crear un DOM que al tocar el input el valor de tag se cambie en base a informacion dentro del objeto dentro del array
+
+
+ver Mozilla developer closure para saber mas al respecto como resolverlo
