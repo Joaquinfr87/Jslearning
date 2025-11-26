@@ -97,4 +97,3 @@ Directo y sin relleno, como tú prefieres.
 
 ---
 
-Si quieres, te puedo dar ejemplos cortos de cada grupo.
