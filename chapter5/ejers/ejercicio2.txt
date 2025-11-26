@@ -1,0 +1,33 @@
+Problema: Dominant Character Type (usando Unicode)
+
+Escribe una función dominantCharType(text) que determine el tipo de carácter predominante en un texto. Los tipos son:
+
+"letter" → letras A-Z / a-z
+
+"digit" → números 0-9
+
+"punctuation" → signos de puntuación . , ! ? ; :
+
+"whitespace" → espacios, tabulaciones, saltos de línea
+
+La función debe devolver el tipo que aparece con más frecuencia en el texto.
+
+Información importante sobre Unicode y códigos de caracteres
+
+Cada carácter tiene un número único llamado código Unicode, que puedes obtener con char.charCodeAt(0). Esto permite identificar el tipo de carácter sin usar regex.
+
+Tipo	Código Unicode / Rango
+Mayúscula	65–90 (A–Z)
+Minúscula	97–122 (a–z)
+Dígito	48–57 (0–9)
+Espacio/tab/salto	32 = " ", 9 = \t, 10 = \n, 13 = \r
+Puntuación	Se puede definir un Set de símbolos como . , ! ? ; :
+Cómo resolverlo paso a paso
+
+
+dominantCharType("Hello, world! 123")
+// Letras: 10
+// Dígitos: 3
+// Puntuación: 2
+// Espacios: 3
+// ➜ devuelve "letter"

@@ -115,4 +115,17 @@ for(let i=0;i<palabra18.length;i++){
 }
 console.log(reves);
 //19
-
+let numero19 = 435678;
+numero19 = String(numero19)
+let contador19=0;
+for(let i = 0; i < numero19.length ; i++){
+  if(Number(numero19[i])%2==0)contador19++
+}
+console.log(contador19);
+//20
+let nums20 = [1,2,3,4,43,5,345,563,43,1323,565,3,545,343243,545,0]
+let almacenador=0;
+for(let i = 0; i<nums20.length; i++){
+  if(nums20[i]>almacenador)almacenador=nums20[i]
+}
+console.log(almacenador)
