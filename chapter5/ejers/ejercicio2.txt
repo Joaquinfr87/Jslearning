@@ -29,5 +29,5 @@ dominantCharType("Hello, world! 123")
 // Letras: 10
 // Dígitos: 3
 // Puntuación: 2
-// Espacios: 3
+// Espacios: 2
 // ➜ devuelve "letter"
