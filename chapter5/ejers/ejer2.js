@@ -2,7 +2,7 @@ function dominantCharType(text){
   let obj = [...text].reduce((a,b) => {
     // [...string] lo convierte en un array 
     let char = b.charCodeAt();
-    if(char > 64 && char < 91 || char > 97 && char <123){
+    if(char > 64 && char < 91 || char > 96 && char <123){
       a.letter=(a.letter??0)+1;
     }else if(char > 47 && char < 58){
       a.digit=(a.digit??0)+1;

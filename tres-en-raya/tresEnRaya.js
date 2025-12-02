@@ -60,5 +60,6 @@ let celdaSeleccionada = function () { //requiere function normal no arrow por qu
   }
 }
 
+console.log("Hello World!");
 
 
