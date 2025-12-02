@@ -31,5 +31,5 @@ obj["valor"+i] = obj["valor"+i]?obj["valor"+i]+1:0
 //esta utilizamod un operador ternario parecido al primero hay que tener cuidado con llegar a 0
 //el menos util
 // 
-// si trabajermos con letra u otro tipo de datos entonces el uso de uno u otro
+// si trabajermos con string u otro tipo de datos entonces el uso de uno u otro
 // sera mejor en ciertos escenarios
