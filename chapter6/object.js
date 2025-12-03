@@ -326,3 +326,24 @@ console.log(persona.hablar("Hola mundo"))// no requiera de una instancia de la c
 
 
 //Symbols
+//permiten crear propiedades que nunca se mezclaran unas con otras
+//no puede colisionar
+//ejemplo con el length, podemos usarlos en objetos para reprentar cosas diferentes
+//que el length de js representa
+const length = Symbol("length");
+Array.prototype[length] = 0;
+
+console.log([1,2].length);   // 2  (propiedad normal)
+console.log([1,2][length]);  // 0  (propiedad symbol)
+
+let myTrip = {
+  length: 2,            // propiedad normal
+  0: "Lankwitz",
+  1: "Babelsberg",
+  [length]: 21500       // propiedad symbol
+};
+
+console.log(myTrip[length]); // 21500
+console.log(myTrip.length);  // 2
+
+//Interface iterator
