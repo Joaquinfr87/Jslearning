@@ -123,7 +123,7 @@ Escribe una función que calcule el factorial de un número (n!). Incluye valida
 
 28. Patrón de reloj de arena con asteriscos
 Crea un programa que imprima un patrón de reloj de arena de asteriscos con una altura de 7 líneas. Debes usar bucles anidados y condicionales para decidir cuándo imprimir asterisco o espacio.
-
+```
 *******
  *****
   ***
@@ -131,6 +131,7 @@ Crea un programa que imprima un patrón de reloj de arena de asteriscos con una 
   ***
  *****
 *******
+``` 
 
 29. Encontrar el MCD (Máximo Común Divisor) de tres números
 Escribe un programa que encuentre el Máximo Común Divisor de tres números diferentes. Primero encuentra el MCD de los dos primeros números, luego encuentra el MCD de ese resultado con el tercer número. Usa el algoritmo de Euclides (con restas o módulo) implementado con bucles.
