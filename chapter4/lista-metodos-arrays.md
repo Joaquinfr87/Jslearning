@@ -232,5 +232,3 @@ let a=[1,2,3]; a.splice(1,1) // [1,3]
 ```
 
 ---
-
-Si quieres lo mismo pero **solo los más usados**, o separados por **entrevistas, rendimiento o mutación**, dime.
