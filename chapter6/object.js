@@ -378,12 +378,14 @@ class Nodo {
     //este estatico crear las instancias de los objetos en base a un array
     let siguiente;
     for(let e of numbers){
-    siguiente = new this(e,siguiente);
+    siguiente = new this(e,siguiente);//solo funciona dentro de static
     }
     return siguiente;
   }
   push(n){
-    return new Nodo(n,this)
+    let nodoAux = new Nodo(this.value,this.nodoSiguiente);
+    this.value = n;
+    this.nodoSiguiente = nodoAux;
   }
 }
 class NodoIterator{
@@ -413,3 +415,41 @@ for(let e of lista){
 //5
 //6
 console.log(lista.length)//=> 6
+lista.push(7);
+
+
+//Inheritance (herencia)
+class LengthList extends Nodo {
+  #length;
+
+  constructor(value, rest) {
+    super(value, rest);
+    this.#length = super.length;
+  }
+
+  get length() {
+    return this.#length;
+  }
+}
+
+console.log(LengthList.fromArray([1, 2, 3]).length);
+// → 3
+// la herencia como tal ya existe en js, es solo syntatic sugar
+// con los prototipos ya se manejan de mejor manera y menos enredosa
+// la herencias de OOP
+
+//Operador de instacia de Objeto
+//un operador que evalua si un objeto pertence a una instancia de otro
+//funciona tanto para clases, prototipos, herencias ,
+function Persona(nombre) {
+  this.nombre = nombre;
+}
+
+Persona.prototype.saludar = function() {
+  console.log(`Hola, soy ${this.nombre}`);
+};
+
+let p = new Persona("Ana");
+
+console.log(p instanceof Persona); // → true
+console.log(p instanceof Object);  // → true, porque todos los objetos heredan de Object
