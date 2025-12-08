@@ -123,10 +123,5 @@ Combinaciones encontradas:
 5. X=4, Y=3, Z=3 → Suma: 10, Producto: 36 ❌ (no cumple producto)
 6. X=4, Y=4, Z=2 → Suma: 10, Producto: 32 ❌ (no cumple producto)
 
-✅ COMBINACIÓN VÁLIDA ENCONTRADA:
-   X=2, Y=3, Z=4 → Suma: 2+3+4=9, Producto: 2×3×4=24
-   (Esta cumple ambas condiciones)
-
 ─────────────────────────────
 Total de combinaciones probadas: 125
-Combinaciones válidas encontradas: 1
