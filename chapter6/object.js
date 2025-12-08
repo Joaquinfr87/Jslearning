@@ -453,3 +453,4 @@ let p = new Persona("Ana");
 
 console.log(p instanceof Persona); // → true
 console.log(p instanceof Object);  // → true, porque todos los objetos heredan de Object
+

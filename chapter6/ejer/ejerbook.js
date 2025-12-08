@@ -88,8 +88,10 @@ class Group{
     contador++
     return this.indexOf(n,nodo.rest,contador)
   }
-
-  [Symbol.iterator](){// este objeto se itera asi mismo por lo tanto debemos darle la forma
+  //El Symbol iterator retorna un objeto qeu dentro debe de tener un next
+  // el next debe retornar el valor y done; si es done es true no debe pasar mas valores
+  [Symbol.iterator](){// este objeto se itera
+    //asi mismo por lo tanto debemos darle la forma
     //de pasar a otros valores y detenerse
     return{
       nodo: this.inicio,
@@ -121,7 +123,7 @@ class Group{
     return reducido;
   }
   get length(){
-    return this.indexOf(this.final.valor)
+    return this.indexOf(this.final.valor)+1
   }
   
 }
