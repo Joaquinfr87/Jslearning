@@ -57,4 +57,13 @@ test("Verificar que cuadrado de 5 sea 25", () => {
 });
 
 
+//Debugging
+//al momento de debuggear codigo en Javascript y en cualquier lengjuajee en general 
+//se debe seguir un plan o estrategia para dar con la causa el bugg
+//una estrategia: piensa, analiza y da un una posible respuesta del error 
+//sigue observando hasta que pruebes la teoria, si aun no tienes la teoria sigue
+//observando hasta tener una 
+//unos cuantos console.log() puede ayudarte a observar mejor donde se encuentra el error
+//o puedes usar el debugger del navegador
+
 
