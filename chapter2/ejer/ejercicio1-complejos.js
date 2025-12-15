@@ -75,4 +75,3 @@ while(fib2<10000){
   console.log(fib2);
   (fib2%2)?parFib++:imparFib++
 } 
-//6

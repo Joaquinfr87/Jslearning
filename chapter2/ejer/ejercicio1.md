@@ -114,32 +114,3 @@ Escribe un programa que convierta una cantidad grande de segundos (ej: 100000) e
 
 25. Generador de secuencia de Fibonacci hasta límite
 La secuencia de Fibonacci empieza con 0 y 1. Cada número siguiente es la suma de los dos anteriores. Escribe un programa que genere todos los números de Fibonacci menores que 10,000 y que además cuente cuántos de ellos son pares y cuántos son impares. No uses arrays para almacenar la secuencia completa.
-
-26. Juego de adivinar el número (computadora como jugador)
-Implementa un juego donde la computadora "adivine" un número que tú piensas entre 1 y 100. El programa debe hacer preguntas como "¿Tu número es mayor que 50?" y ajustar su rango de búsqueda. Debe encontrar el número en no más de 7 intentos (usando búsqueda binaria). El usuario responde con 's' (sí) o 'n' (no).
-
-27. Calculadora de factorial con validación
-Escribe una función que calcule el factorial de un número (n!). Incluye validación: si el número es negativo, muestra un error; si es 0, retorna 1. Luego, crea un programa que calcule y muestre los factoriales de todos los números desde 1 hasta 10, pero omite los números que sean múltiplos de 3 en el cálculo.
-
-28. Patrón de reloj de arena con asteriscos
-Crea un programa que imprima un patrón de reloj de arena de asteriscos con una altura de 7 líneas. Debes usar bucles anidados y condicionales para decidir cuándo imprimir asterisco o espacio.
-```
-*******
- *****
-  ***
-   *
-  ***
- *****
-*******
-``` 
-
-29. Encontrar el MCD (Máximo Común Divisor) de tres números
-Escribe un programa que encuentre el Máximo Común Divisor de tres números diferentes. Primero encuentra el MCD de los dos primeros números, luego encuentra el MCD de ese resultado con el tercer número. Usa el algoritmo de Euclides (con restas o módulo) implementado con bucles.
-
-30. Simulador de cajero automático básico
-Escribe un programa que simule un cajero automático. El usuario tiene un saldo inicial de $1000. El programa debe mostrar un menú:
-1. Consultar saldo
-2. Depositar dinero
-3. Retirar dinero
-4. Salir
-El programa debe repetirse hasta que el usuario elija salir. Valida que no se puedan retirar fondos mayores al saldo ni cantidades negativas. Usa switch para el menú y bucles while para la repetición.
