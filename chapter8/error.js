@@ -1,4 +1,4 @@
-// Al ser Javascript un lenguajes tan abierto y flexible da la contra
+// Al ser Javascript un lenguajes tan abiertos y flexible, tiene una contra
 // de que cosas que no deberian suceder, suceden lo que pueden ocasionar 
 // errores o bugs no deseables en nuestro codigo que son dificiles de encontrar
 // o incluso dificiles de diagnosticar
@@ -7,7 +7,7 @@
 
 //Strict mode
 //el modo stricto te ayuda a mantener una mejor sintaxis en tu codigo
-//son alugnos aspectos que Javascript paso por alto a veces, y rellena los espacios 
+// alugnos aspectos que Javascript paso por alto a veces, y rellena los espacios 
 //de codigo pero en strict mode esto ya no sucedera por lo que tendras un condigo
 //mas stricto en su sintaxis y declaracion ayudandote a evitar errores
 
@@ -67,11 +67,11 @@ test("Verificar que cuadrado de 5 sea 25", () => {
 //o puedes usar el debugger del navegador
 
 //error propagation
-//EL codigo que no puede escribir puede cumplir con el objetivos que una persona 
+//EL codigo que uno puede escribir puede cumplir con el objetivos que el mismo programador 
 //le haya dado, pero esto tomando en cuenta que el codigo solo sera corrido por la misma persona
 //que la creo, pero el codigo es compartido con demas personas que pueden no entender o conocer nuestro
-//codigo y pueden provocar errores, debemos manera estos errores de alguna forma para poder mantener
-//el codigo corriendo si qeu crashee
+//codigo y pueden provocar errores, debemos manejar estos errores de alguna forma para poder mantener
+//el codigo corriendo sin qeu crashee
 //por ejemplo esta funcion que valida si una variables es un numero
 function promptNumber(question) {
   let result = Number(prompt(question));
@@ -90,7 +90,7 @@ function lastElement(array) {
     return {value: array[array.length - 1]};
   }
 }
-// otra solucion que podemos dar un resultado con un objeto explicito
+// otra solucion que podemos dar, es un resultado con un objeto explicito
 // que nos diga si es que existe o no un error
 // aun asi debemos de tener cuidado de hacerla, puesto que puede hacer
 // nuestro codigo repetitivo y dificil de leer
@@ -121,8 +121,8 @@ try {
   console.log("Something went wrong: " + error);
 }
 //Cleaning up after exceptions
-//ahora si bien la excepciones nos ayudan a controlar los erroes estas pueden parar el flujo de nuestro codigo
-//y dejarlo sin terminar, y podemos tener erroes pues antes de que ocurrar la excepcion puedes haberse modificado
+//ahora si bien la excepciones nos ayudan a controlar los errores, estas pueden parar el flujo de nuestro codigo
+//y dejarlo sin terminar en una corrida infinita, y podemos tener erroes pues antes de que ocurriera la excepcion puede haberse modificado
 //muchas variablese y datos por lo que puede causar en errores y perdida de informacion graves
 //para eso podemos utilizar la herramineta finally
 //que hara que no importa lo que suceda ya sea un error o no exista un error siempre se ejecutara una lineas de codigo
@@ -222,7 +222,7 @@ for (;;) {//BUCLE INFINITO
 //esto nos sirve para ver posibles errores que podamos cometer y que sean revisado
 //estos son para el programador y no para el usuario
 //podemos escribir una funcion que nos bote un resultado que siempre esperamos
-//pero no pasamos por alto que puede botar otros resultados y lo pasamos por alto
+//pero pasamos por alto que puede botar otros resultados que no son los planeados
 //cuando ocurra el error despues, olvidaremos lo que sabiamos
 //causando confusion y perdiendo tiempo buscando el problema
 //ejemplo
