@@ -86,3 +86,73 @@ console.log(config === config2)
 console.log(config.get("tema"));
 console.log(config2.set("tema","claro"));
 console.log(config.get("tema"));
+
+//3
+function Vehiculo(marca){
+  this.marca = marca
+}
+Vehiculo.prototype.moverser = function(){
+  console.log("Moviendose")
+}
+function Coche(marca,modelo){
+  Vehiculo.call(this,marca);
+  this.modelo = modelo;
+}
+Coche.prototype = Object.create(Vehiculo.prototype);
+Coche.prototype.constructor = Coche;
+Coche.prototype.tocarBocina = function() {
+  console.log(`${this.marca} ${this.modelo} dice: ¡Beep Beep!`);
+};
+const miCoche = new Coche("Toyota", "Corolla");
+
+miCoche.moverse();      // "Toyota se está moviendo..." (Heredado)
+miCoche.tocarBocina();  // "Toyota Corolla dice: ¡Beep Beep!"
+
+console.log("¿Es miCoche un Coche?", miCoche instanceof Coche);      // true
+console.log("¿Es miCoche un Vehiculo?", miCoche instanceof Vehiculo); // true
+
+//4
+let Volador = {
+  despegar(){
+    console.log("despegando")
+  },
+  aterrizar(){
+    console.log("aterrizando")
+  }
+}
+let Hablar = {
+  decirNombre(){
+    console.log(`Yo soy ${this.nombre}`)
+  }
+}
+class Persona {
+  constructor(nombre){this.nombre=nombre}
+}
+class Robot{
+  constructor(nombre){this.nombre=nombre}
+}
+class Dron{
+  constructor(nombre){this.nombre=nombre}
+}
+Object.assign(Robot.prototype,Volador,Hablar)
+Object.assign(Persona.prototype, Hablar)
+Object.assign(Dron.prototype,Volador)
+
+//5
+class CuentaBancaria{
+  #saldo=0;
+  get saldo(){
+    return this.#saldo;
+  }
+  depositar(monto){
+    this.#saldo += monto;
+  }
+  retirar(monto){
+    try{
+      if(this.#saldo-monto<0) throw new Error("El monto sobre pasa al saldo en la cuenta")
+      else this.#saldo -= monto;
+    }catch(e){
+      console.log(e)
+    }
+  }
+}
