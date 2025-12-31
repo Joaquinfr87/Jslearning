@@ -47,3 +47,10 @@ function getUserObject(firstName, lastName, age) {
 function canDriveCar(user, car) {
     return user.age >= 18 || car.engineSize < 1000
 }
+//11
+function areAllNumbersEven(numbers) {
+    return !numbers.some(a=>a%2==1)
+}
+//12
+
+
