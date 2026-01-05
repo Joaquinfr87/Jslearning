@@ -113,4 +113,25 @@ console.log(/a*$/.test("Hol"))//=>true
 //cobra mas sentido si le damos condicion de inicio y final
 
 
-//? 
+//? convierte en un caracter en opcional  
+console.log(/\d (dia)?/.test("1 dia"))//=>true
+console.log(/\d (dia)?/.test("1 "))//=>true
+
+//{} cantidades precisas 
+console.log(/\d{2,3}/.test("23"))//=> true
+console.log(/\d{2,3}/.test("245"))// => true
+console.log(/\d{4}/.test("2024"))// => true
+console.log(/\d{5,}/.test("123456778956262362"))// => true
+
+console.log(/^\d{1,2}-\d{1,2}-\d{4}$/.test("12-31-2025"))
+
+//grouping subexpressions 
+//podemos agrupar elementos con () y estos a sus vez podran utilizar las condiciones como ()+, ()*
+//el i al final hacer que no sea sensitive case
+console.log(/boo+(hoo+)+/i.test("BooooooHoooohoooohoohooooooooo"))//=>true
+console.log(/boo+(hoo+)+/i.test("booHOOOOOhoo"))//=>true
+
+//Matches and groups
+//con test podemos comprobas si existe la coincidiencia ahora veremos exec con el que podremos 
+//saber cuales han sido todas las coincidencias y donde esta
+console.log(/\d+/.exec("hora 3 y 45 y 2 seg"))
