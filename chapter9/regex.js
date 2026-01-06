@@ -80,9 +80,9 @@ console.log(/[\d.]/.test("MI nombre es $Joaf-"))//=>false
 
 //podemos tambien comparar excepciones gracias a ^
 // [^01] : cualquiera que al menos sea distinto de lo siguiente
+// ^ todo lo que no sea lo que esta dentro
 console.log(/[^01]/.test("0101010101010111011100110001100111101010"))//=>false
 console.log(/[^01]/.test("0101010101010111011100110201100111101010"))//=>true por que tiene un 2
-
 
 
 //International characters 
@@ -134,4 +134,72 @@ console.log(/boo+(hoo+)+/i.test("booHOOOOOhoo"))//=>true
 //Matches and groups
 //con test podemos comprobas si existe la coincidiencia ahora veremos exec con el que podremos 
 //saber cuales han sido todas las coincidencias y donde esta
-console.log(/\d+/.exec("hora 3 y 45 y 2 seg"))
+console.log(/\d+/.exec("hora 3 y 45 y 2 seg"))//=> 3
+
+//en el siguiente ejemplo, exec busca la coincidencia general, y tambien subcoincidencias que esten 
+//dentro de un parentesis, por lo tanto dara 2 resultados
+let quotedText = /'([^']*)'/;
+console.log(quotedText.exec("she said 'hello'"));
+// → ["'hello'", "hello"]
+
+console.log(/bad(ly)?/.exec("bad"));// → ["bad", undefined]
+console.log(/bad(ly)?/.exec("badly"));// => ["badly","ly"]
+console.log(/bad(ly)?/.exec("badlysh"));// => ["badly","ly"]
+
+//como repidte el grupo de coincidencia varias veces el ultimo grupo esta con 3
+//por lo tanto la subcoincidencia es 3
+console.log(/(\d)+/.exec("123"));// → ["123", "3"]
+
+//si quiero que un grupo sea invisible y que no sea parte de la coincidencia
+//entonces podemos poner ?: 
+console.log(/(na)+/.exec("banana"))//=> ["nana", "na"]
+console.log(/(?:na)+/.exec("banana"))//=> "nana"
+
+//the date class 
+//Javascript tiene un objeto para crear fechas Date
+console.log(new Date())
+console.log(new Date(2009,11,9))// tambien puedes especificar las fechas
+console.log(new Date(2009, 11, 9, 12, 59, 59, 999));// muy especifico
+// por convecion javascript empieza desde 0 con los mesese por lo tanto diciembre es 11
+
+//el conteo en milisegundos empezo de 1970 
+console.log(new Date(1387407600000));// → Thu Dec 19 2013 00:00:00 GMT+0100 (CET)
+//el date nos da un monton de metodos getFullYear, getMonth, getDate, getHours, getMinutes, and getSeconds
+
+function getDate(string){
+  let [_,month,day,year] = /(\d{1,2})-(\d{1,2})-(\d{4})/.exec(string);
+  // la sintaxixs de [] antes de = es para deestructurar un array
+  // el _ representa a un elemento que no nos intereza 
+  return new Date(year,month-1,day);
+}
+console.log(getDate("02-24-2004"))
+
+
+//Boundaries and look ahead
+//a veces deseamos coincidencias exactas que ciertas expresiones no nos la daran 
+// "22000-34-2354"
+// en este caso tendremos un resultado por exec pero este no nos servira
+// para hacer que sea mucho mas especifico podemos poner lintes de inicio y final
+
+console.log(/^(\d{1,2})-(\d{1,2})-(\d{4})$/.exec("123123-3213-4342314"));//=> null
+
+console.log(/^(\d{1,2})-(\d{1,2})-(\d{4})$/.exec("03-89-4597"));//=> ["03-89-4597", "03", "89", "4597"]
+
+
+console.log(/^(\d{1,2})-(\d{1,2})-(\d{4})$/.exec("03-89-4597"));//=> ["03-89-4597", "03", "89", "4597"]
+
+//con los lookahead hacemos que regex se comporte inteligente
+//y podemos darle condiciones
+//mira hacia adelante si existe y se cumple la condicion entonces
+//te devolverea el resultado
+
+console.log(/a(?=e)/.exec("braeburn"));// → ["a"]
+console.log(/a(?! )/.exec("a b"));// → null
+console.log(/^(a(?!e))+/.exec("aaaaaaaaaaaaaaee"))// "aaaaaaaaaa","a"
+
+//?= seguido que sea igual que 
+//?! seguido que no sea igual que 
+
+
+//Choice patterns
+//
