@@ -202,4 +202,16 @@ console.log(/^(a(?!e))+/.exec("aaaaaaaaaaaaaaee"))// "aaaaaaaaaa","a"
 
 
 //Choice patterns
-//
+//si queremos escribir una expresion que valida algo pero tambien otra
+//es decir que dos pueden ser validas pero solo una usamos | como el or
+console.log(/\d (pig|cow|chicken)s/.test("12 pigs"));
+console.log(/\d (pig|cow|chicken)s/.test("12 cows"));
+
+
+//The replace method
+//con Javascript podemos hacer uso del replaca un metodo para los strings
+console.log("tabla".replace("t", "p"))
+//podmeos utilizar el mismo metodo para usarlo con regex
+console.log("borudur".replace(/[ou]/, "a"))
+//para hacer que este sea global entonces utlizamos el g al finalizar la expresion regular
+console.log("borudur".replace(/[ou]/g, "a"))
