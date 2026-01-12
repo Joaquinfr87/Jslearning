@@ -209,9 +209,41 @@ console.log(/\d (pig|cow|chicken)s/.test("12 cows"));
 
 
 //The replace method
-//con Javascript podemos hacer uso del replaca un metodo para los strings
+//con Javascript podemos hacer uso del replace un metodo para los strings
 console.log("tabla".replace("t", "p"))
 //podmeos utilizar el mismo metodo para usarlo con regex
-console.log("borudur".replace(/[ou]/, "a"))
+console.log("borudur".replace(/[ou]/, "a"))//=> barudur
 //para hacer que este sea global entonces utlizamos el g al finalizar la expresion regular
-console.log("borudur".replace(/[ou]/g, "a"))
+console.log("borudur".replace(/[ou]/g, "a"))//=> baradar
+
+// \p{L} cualquier caracter de unicode
+console.log("Liskov, Barbara\nMcCarthy, John\nMilner, Robin"
+  .replace(/(\p{L}+), (\p{L}+)/gu,"$2 $1"))
+
+// ejemplo avanzado de replace
+let stock = "1 lemon, 2 cabbages, and 101 eggs";
+//al momento de ejecutarse el regex simpre lo hara como exec
+//es decir siempre que usemos regex este internamente hara el exec
+//por lo tango al hacer replace este hace exec, y como al encontrar una coincidencia
+//hara una accion que por lo general esta deberia ser el cambio de un caracter
+//pero en este ejemplo ejecuta una funcion que tomara la salida del exec
+//y al hacer g lo hara varias veces, es decir que la funcion se llamara varias veces
+//pues no solo buscara una unica coincidencia, si no todas las posibles
+//match => "1 lemon" coincidencia
+//amount => "1" subcoincidencia
+//unit => "lemon" subcoincidencia
+function minusOne(match, amount, unit) {
+  amount = Number(amount) - 1;
+  if (amount == 1) { // only one left, remove the 's'
+    unit = unit.slice(0, unit.length - 1);
+  } else if (amount == 0) {
+    amount = "no";
+  }
+  return amount + " " + unit;
+}
+console.log(stock.replace(/(\d+) (\p{L}+)/gu, minusOne));
+// → no lemon, 1 cabbage, and 100 eggs
+
+
+//Greed
+//
