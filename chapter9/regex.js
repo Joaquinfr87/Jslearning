@@ -249,3 +249,23 @@ console.log(stock.replace(/(\d+) (\p{L}+)/gu, minusOne));
 //. cualquier caracter
 //[^] cualquien caracter incluido salto de linea
 
+//podemos tener como ejemplo un regex que elimina las lineas de comentarios
+function borrarComentarios(codigo){
+  return codigo.replace(/\/\/.*|\/\*[^]*\*\//g,'')
+}
+console.log(borrarComentarios("x = x + 1; // este aumentara en cada iteracion"))
+console.log(borrarComentarios("/* Javascrip es un lengujae no typado por lo tanto \n puedes hacer cosas como esta let i = \"gagagaga\"; i = 1; */ let x = suma * suma"))
+console.log(borrarComentarios("1 /* a */+/* b */ 1"));// 1 1
+
+// por como funciona regex el ultimo ejemplo no da el resultado esperado 
+//regex siempre intentara primero buscar la mayor cantidad posibles
+//es decir la mas grande coincidencia y de ahi ira reduciendo
+//por esta razon se dice que los operaoders *,+,?,{} con codiciosos o greedy
+//para solucionar ese problema debemos de usar 
+// el uso de *? que hace que no sean codiciosos none greedy
+// con el * seria la coincidencia de toda la linea 
+
+function borrarComentariosCorregido(codigo){
+  return codigo.replace(/\/\/.*|\/\*[^]*?\*\//g,'')
+}
+console.log(borrarComentariosCorregido("1 /* a */+/* b */ 1"));// 1 1
