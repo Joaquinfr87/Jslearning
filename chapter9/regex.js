@@ -246,4 +246,6 @@ console.log(stock.replace(/(\d+) (\p{L}+)/gu, minusOne));
 
 
 //Greed
-//
+//. cualquier caracter
+//[^] cualquien caracter incluido salto de linea
+
