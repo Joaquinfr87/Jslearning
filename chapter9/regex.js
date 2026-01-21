@@ -269,3 +269,39 @@ function borrarComentariosCorregido(codigo){
   return codigo.replace(/\/\/.*|\/\*[^]*?\*\//g,'')
 }
 console.log(borrarComentariosCorregido("1 /* a */+/* b */ 1"));// 1 1
+
+
+//Dynamically creating RegExp objects
+//Ahora veremos como utrilizar regex con variables, es decir que le diremos al motor regex que palabra
+//debe de buscar dentro, para esto usamos el la clase de objeto RegExp
+
+let nombre = 'harry'
+//para este caso ya no estamos haciendo uso de la forma clasica de escribir regex //
+let regexp = new RegExp('(^|\\s)'+nombre+'($|\\s)','gi')
+console.log(regexp.exec("Hola HarRY como estas patron, harryingi harrysito super harry"))
+
+//imagina que una persona tiene un nombre que puede causar problemas con nuestro codigo regex
+//por ejemplo este nombre
+let name = "dea+hl[]rd";
+//tiene algunos operadores de regex que podrian causar problemas al momento
+//de ponerlo dentro del objeto regex 
+//para evitar este tipo de problemas utilzaremos otro regex que nos ayude a limpiar y 
+//cambiar el texto que puede darnos problemas por uno que el objeto lo puede
+//ejecutar sin problemas
+let escaped = name.replace(/[\\[.+*?(){|^$]/g, "\\$&");
+let regexp2 = new RegExp("(^|\\s)" + escaped + "($|\\s)",
+                        "gi");
+let text = "This dea+hl[]rd guy is super annoying.";
+console.log(regexp2.test(text));
+// → true
+
+
+//search method
+//con regex podemos hacer metodos mas potentes para buscar palabras o cosas dentro del texto
+//este nos dara el indcie de la coincidencia es mucho mejor que indexOf
+
+console.log("  Saul Vargas".search(/\S/))//=> 2
+//buscara el primer caracter que no sea un espacio
+
+
+//
