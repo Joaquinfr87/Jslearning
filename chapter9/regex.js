@@ -304,4 +304,61 @@ console.log("  Saul Vargas".search(/\S/))//=> 2
 //buscara el primer caracter que no sea un espacio
 
 
-//
+//The lastIndex property
+//en javascript los regex no son solo declaraciones si no que son objetos con estado 
+//por lo tanto pueden recordar la posicion de la busqueda y continuar con la siguiente
+//esto gracias a lastIndex y exec
+//para ello se deben cumplir lo siguiente 
+//debe de tener la bandera global g o sticky y
+//y se debe se usar el metodo exec 
+const pattern = /y/g;
+pattern.lastIndex = 3; // Forzamos el inicio de búsqueda en el índice 3
+
+const match = pattern.exec("xyz y");
+
+console.log(match.index);      // 4 (Encontró la 'y' en la posición 4)
+console.log(pattern.lastIndex); // 5 (Queda listo para buscar después de la coincidencia)
+
+//diferencia entre global g y sticky y
+//global busca hacia adelante despues de lastIndex si no lo encuentra seguira buscando
+//sticky es extricta si no esta  donde esta lastIndex, si no falla inmediatamente 
+const text2 = "xyz abc";
+
+// GLOBAL: Busca adelante
+const globalRegex = /abc/g;
+globalRegex.lastIndex = 0;
+console.log(globalRegex.exec(text2)); // -> ["abc"] (Lo encontró más adelante)
+
+// STICKY: Busca solo en la posición exacta
+const stickyRegex = /abc/y;
+stickyRegex.lastIndex = 0;
+console.log(stickyRegex.exec(text2)); // -> null (En la pos 0 hay "xyz", no "abc")
+
+
+//las instancias de RegExp son globales por lo que hay que tener mucho cuidado 
+//el valor de algunas propiedades pueden manteneres y no resetearse para otros
+//usos que hagamos con ellos, por ejemplo lastIndex
+const digit = /\d/g;
+
+// Primera llamada: Encuentra el 1, lastIndex avanza.
+console.log(digit.exec("Opción: 1")); // -> ["1"] 
+
+// Segunda llamada: Empieza a buscar desde donde quedó la anterior.
+// Falla aunque el string tenga un número, porque busca demasiado adelante.
+console.log(digit.exec("Opción: 2")); // -> null
+
+
+//si queremos obtener todas las coincidencias de un texto y sus posiciones exactas debemos de hacer uso
+//de el metodo matchAll que generara un Iterator con el cual podremos utilizar para saber la informacion
+//de manera detallada
+const input = "Clave: 42, Valor: 88";
+// Requiere la bandera 'g'
+const matches = input.matchAll(/\d+/g);
+
+for (const match of matches) {
+  // match[0] es el valor, match.index es la posición
+  console.log(`Encontrado ${match[0]} en índice ${match.index}`);
+}
+// Salida:
+// Encontrado 42 en índice 7
+// Encontrado 88 en índice 18
