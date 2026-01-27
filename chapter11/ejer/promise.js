@@ -1,3 +1,4 @@
+//1
 //convierto a promise
 function esperar(segundos, callback) {
   setTimeout(() => {
@@ -20,7 +21,7 @@ function esperarPromise(segundos){
 esperarPromise(2).then(mensaje=>console.log(mensaje))
 .then(mensaje=>console.log(mensaje))
 
-
+//2
 
 function esPar(numero, callback) {
   if (numero % 2 === 0) {
@@ -50,3 +51,42 @@ function esParPromise(numero){
 }
 esParPromise(10).then(mensaje=>{console.log(mensaje)})
   .catch(error=>console.error(error))
+
+
+//3
+const getCarne = (cb)=> setTimeout(()=>cb("carne"),500);
+const cocinar = (carne,cb)=>setTimeout(cb("hamburguesa"),500);
+const servir = (hamburguesa,cb)=>setTimeout(cb("Plato con "+ hamburguesa),500)
+
+getCarne((carne)=>{
+  console.log("Tengo Carne" ,carne)
+  cocinar(carne,(cocinada)=>{
+    console.log("Cocinada ",cocinada);
+    servir(cocinada,(plato)=>{
+      console.log("Listo ",plato)
+    })
+  })
+})
+
+//promise
+const getCarnePromise = (cb)=>{
+  return new Promise(()=>{
+    setTimeout(()=>{
+      cb("Carne")
+    },500)
+  })
+}
+const cocinaPromise = (carne,cb)=>{
+  return new Promise(()=>{
+    setTimeout(()=>{
+      cb("Hamburguesa")
+    },500)
+  })
+}
+const servirPromesa = (hamburguesa,cb)=>{
+  return new Promise(()=>{
+    setTimeout(()=>{
+      cb("Plato con ",hamburguesa)
+    },500)
+  })
+}
