@@ -77,5 +77,13 @@ miPromesa.then((resultado) => {
     console.log("proceso finalizado")
   })
 
-
-
+//Failure
+//Uno de los problemas que tienen los callback es que requieren de una funcion extra para manejar los errores 
+//lo cual puede dar a errore silenciosos si no se encuntra o se olvidan ponerlos 
+//la promises arreglan esto ya que vienen con un manejador de errores 
+//podemos verlo como una pipeline, si to va bien ira por todos los pipes (los then) pero si ocurre un error
+//se desviara al catch para manejar el error 
+//anatomia manejo errores
+//propagacion si una vez se marca como error dentro de un then entonces viaja directamente al catch
+//un catch no solo sirve para reportalo si no para manejarlo y ponerlo en un estado de exito
+//al crear una Promesa recibes resolve y reject 
